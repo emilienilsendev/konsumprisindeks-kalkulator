@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Konsumprisindeks Kalkulator - Beregn hvordan priser har endret seg over tid basert på KPI-data fra SSB">
+    <meta name="keywords" content="konsumprisindeks, kpi, kalkulator, inflasjon, norge, ssb">
+    <meta name="author" content="Emilie Nilsen">
+    
+    <title>Konsumprisindeks Kalkulator | Beregn prisendringer over tid</title>
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Konsumprisindeks Kalkulator">
+    <meta property="og:description" content="Beregn hvordan priser har endret seg over tid basert på KPI-data fra SSB">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emilienilsendev.github.io/konsumprisindeks-kalkulator/">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📊</text></svg>">
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Konsumprisindeks Kalkulator</h1>
+            <p class="description">Beregn hvordan priser har endret seg over tid basert på Statistisk sentralbyrås konsumprisindeks (KPI)</p>
+        </header>
+        
+        <main class="calculator">
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="amount">Beløp (NOK)</label>
+                    <input type="number" id="amount" placeholder="Skriv inn beløp" min="0" step="0.01" inputmode="decimal">
+                </div>
+                
+                <div class="form-group">
+                    <label for="from-year">Fra år</label>
+                    <select id="from-year" aria-label="Velg startår for beregning">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="to-year">Til år</label>
+                    <select id="to-year" aria-label="Velg sluttår for beregning">
+                        <!-- Options will be populated by JavaScript -->
+                    </select>
+                </div>
+            </div>
+            
+            <button class="btn" id="calculate-btn" aria-label="Beregn prisendring">
+                <span class="btn-text">Beregn</span>
+                <span class="btn-loader" aria-hidden="true"></span>
+            </button>
+            
+            <div class="result" id="result" role="status" aria-live="polite" hidden>
+                <h2>Resultat</h2>
+                <div class="result-value" id="result-value"></div>
+                <p class="explanation" id="result-explanation"></p>
+                
+                <div class="result-details">
+                    <div class="detail-item">
+                        <span class="detail-label">KPI fra år:</span>
+                        <span class="detail-value" id="from-kpi"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">KPI til år:</span>
+                        <span class="detail-value" id="to-kpi"></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">Endring:</span>
+                        <span class="detail-value" id="change-percentage"></span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="info-box" role="complementary">
+                <h3>Om konsumprisindeksen (KPI)</h3>
+                <p>Konsumprisindeksen (KPI) måler prisutviklingen på varer og tjenester som private husholdninger kjøper. Den brukes blant annet til å justere lønn, trygder og andre ytelser for prisstigning.</p>
+                <p>Denne kalkulatoren bruker offisielle KPI-data fra Statistisk sentralbyrå (SSB) for å beregne hvordan kjøpekraften har endret seg mellom to år.</p>
+            </div>
+        </main>
+        
+        <footer>
+            <div class="footer-content">
+                <p>Kalkulatoren er basert på offisielle data fra Statistisk sentralbyrå (SSB).</p>
+                <p>Utviklet med ❤️ for GitHub - © 2024 <a href="https://github.com/emilienilsendev" target="_blank" rel="noopener">Emilie Nilsen</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
